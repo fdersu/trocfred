@@ -6,13 +6,11 @@ package fr.eni.ecole.bo;
  */
 public class Retrait {
 	private String rue;
-	private String code_postal;
+	private String codePostal;
 	private String ville;
-	private Article art;
+	private Article article;
 	
-	public Retrait() {
-		// TODO Auto-generated constructor stub
-	}
+	public Retrait() {}
 
 	public String getRue() {
 		return rue;
@@ -22,12 +20,12 @@ public class Retrait {
 		this.rue = rue;
 	}
 
-	public String getCode_postal() {
-		return code_postal;
+	public String getCodePostal() {
+		return codePostal;
 	}
 
-	public void setCode_postal(String code_postal) {
-		this.code_postal = code_postal;
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getVille() {
@@ -38,18 +36,19 @@ public class Retrait {
 		this.ville = ville;
 	}
 
-	public Article getArt() {
-		return art;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setArt(Article art) {
-		this.art = art;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
 	@Override
 	public String toString() {
-		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + ", art=" + art + "]";
+		return "Retrait [rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville + ", article=" + article + "]";
 	}
+
 	
 	
 }

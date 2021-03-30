@@ -4,37 +4,37 @@ import java.time.LocalDate;
 
 /**
  * 
- * Classe représente les articles
+ * Classe reprï¿½sente les articles
  *
  */
 public class Article {
-	private int noArticle;
-	private String nomArticle;
+	private int numero;
+	private String nom;
 	private String description;
 	private LocalDate dateDebutEncheres;
 	private LocalDate dateFinEncheres;
 	private int prixInitial; 
 	private int prixVente;
+	private Utilisateur utilisateur;
+	private Categorie categorie;
 	private String etatVente;
 	
-	public Article() {
-		
+	public Article() {}
+
+	public int getNumero() {
+		return numero;
 	}
 
-	public int getNoArticle() {
-		return noArticle;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
-	public void setNoArticle(int noArticle) {
-		this.noArticle = noArticle;
+	public String getNom() {
+		return nom;
 	}
 
-	public String getNomArticle() {
-		return nomArticle;
-	}
-
-	public void setNomArticle(String nomArticle) {
-		this.nomArticle = nomArticle;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public String getDescription() {
@@ -77,6 +77,22 @@ public class Article {
 		this.prixVente = prixVente;
 	}
 
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
 	public String getEtatVente() {
 		return etatVente;
 	}
@@ -87,10 +103,13 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", prixInitial="
-				+ prixInitial + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
+		return "Article [numero=" + numero + ", nom=" + nom + ", description=" + description + ", dateDebutEncheres="
+				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", prixInitial=" + prixInitial
+				+ ", prixVente=" + prixVente + ", utilisateur=" + utilisateur + ", categorie=" + categorie
+				+ ", etatVente=" + etatVente + "]";
 	}
 	
 	
+	
 }
+	

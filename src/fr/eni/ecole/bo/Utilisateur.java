@@ -5,7 +5,7 @@ package fr.eni.ecole.bo;
  *
  */
 public class Utilisateur {
-	private int noUtilisateur;
+	private int numero;
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -18,16 +18,14 @@ public class Utilisateur {
 	private int credit;
 	private boolean administrateur;
 	
-	public Utilisateur() {
-		
+	public Utilisateur() {}
+
+	public int getNumero() {
+		return numero;
 	}
 
-	public int getNoUtilisateur() {
-		return noUtilisateur;
-	}
-
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 	public String getPseudo() {
@@ -120,12 +118,13 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
+		return "Utilisateur [numero=" + numero + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom
+				+ ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal=" + codePostal
+				+ ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit + ", administrateur="
+				+ administrateur + "]";
 	}
 
+	
 	
 	
 }

@@ -3,56 +3,63 @@ package fr.eni.ecole.bo;
 import java.time.LocalDate;
 /**
  * 
- * Classe représente les enchères
+ * Classe reprï¿½sente les enchï¿½res
  *
  */
 public class Enchere {
-	private int dateEnchère;
-	private LocalDate montant_enchere;
-	private Utilisateur util;
-	private Article art;
+	private int numero;
+	private int montant;
+	private LocalDate date;
+	private Utilisateur utilisateur;
+	private Article article;
 	
-	public Enchere() {
-		
+	public Enchere() {}
+
+	public int getNumero() {
+		return numero;
 	}
 
-	public int getDateEnchère() {
-		return dateEnchère;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
-	public void setDateEnchère(int dateEnchère) {
-		this.dateEnchère = dateEnchère;
+	public int getMontant() {
+		return montant;
 	}
 
-	public LocalDate getMontant_enchere() {
-		return montant_enchere;
+	public void setMontant(int montant) {
+		this.montant = montant;
 	}
 
-	public void setMontant_enchere(LocalDate montant_enchere) {
-		this.montant_enchere = montant_enchere;
+	public LocalDate getDate() {
+		return date;
 	}
 
-	public Utilisateur getUtil() {
-		return util;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
-	public void setUtil(Utilisateur util) {
-		this.util = util;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public Article getArt() {
-		return art;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
-	public void setArt(Article art) {
-		this.art = art;
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 
 	@Override
 	public String toString() {
-		return "Enchere [dateEnchère=" + dateEnchère + ", montant_enchere=" + montant_enchere + ", util=" + util
-				+ ", art=" + art + "]";
+		return "Enchere [numero=" + numero + ", montant=" + montant + ", date=" + date + ", utilisateur=" + utilisateur
+				+ ", article=" + article + "]";
 	}
-	
+
 	
 }
