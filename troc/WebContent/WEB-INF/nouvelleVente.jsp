@@ -11,7 +11,6 @@
 <img src="./img/interrogation.png" alt="point interrogation">
 <form action="NewSaleServlet" method="post">
 <label></label>
-<input type="text" 
 </form>
 </div>
 
