@@ -28,8 +28,7 @@
       <c:forEach var="error" items="${erreur }">
       <div class="row">
       <div class="col-sm-4"></div>
-      <div class="col-sm-4"><p class="erreur">${error}</p></div>
-      <div class="col-sm-4"></div>
+      <div class="col-sm-8"><p class="erreur">${error}</p></div>
       </div>
       </c:forEach>
       <div class = "row">
@@ -79,7 +78,7 @@
 			<label for="map">Mise à Prix</label>
 			</div>
 			<div class="col-sm-6">
-			<input class="form-control" type="number"name="map" id="map" value="${map }" required>
+			<input class="form-control" type="number" min="0" step="1" name="map" id="map" value="${map }" required>
 			</div>
 			</div>
 			<div class="form-group row">
@@ -198,7 +197,7 @@
 			<label for="map">Mise à Prix</label>
 			</div>
 			<div class="col-sm-6">
-			<input class="form-control" type="number"name="map" id="map" required>
+			<input class="form-control" type="number" min="0" step="1" name="map" id="map" required>
 			</div>
 			</div>
 			<div class="form-group row">
