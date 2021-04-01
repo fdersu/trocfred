@@ -1,10 +1,13 @@
 package fr.eni.ecole.dal;
 
-import fr.eni.ecole.bo.Article;
+import java.util.List;
 
-public interface ArticleDAO {
+import fr.eni.ecole.bo.Article;
+import fr.eni.ecole.bo.Utilisateur;
+
+public interface ArticleDAO extends CRUD<Article>{
 
 	void insert(Article a);
-	Article selectByNo(int no);
-	
+	Article selectById(int no);
+	List<Article> selectByUser(Utilisateur utilisateur);
 }

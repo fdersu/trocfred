@@ -30,9 +30,10 @@ public class RetraitJDBC implements RetraitDAO {
 	public Retrait selectByArticle(Article a) {
 		Retrait ret = new Retrait();
 		try(Connection cx = Connect.getConnection()){
-			PreparedStatement request = cx.prepareStatement("SELECT rue, code_postal, ville WHERE no_article = ?");
+			PreparedStatement request = cx.prepareStatement("SELECT no_article, rue, code_postal, ville FROM retraits WHERE no_article = ?");
 			request.setInt(1, a.getNumero());
 			ResultSet rs = request.executeQuery();
+			rs.next();
 			ret.setArticle(a);
 			ret.setRue(rs.getString("rue"));
 			ret.setCodePostal(rs.getString("code_postal"));
@@ -55,7 +56,16 @@ public class RetraitJDBC implements RetraitDAO {
 
 	@Override
 	public void update(Retrait item) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		try(Connection cx = Connect.getConnection()){
+			PreparedStatement request = cx.prepareStatement("UPDATE retraits SET rue = ?, code_postal = ?, ville = ? WHERE no_article = ?");
+			request.setString(1, item.getRue());
+			request.setString(2, item.getCodePostal());
+			request.setString(3, item.getVille());
+			request.setInt(4, item.getArticle().getNumero());
+			request.executeUpdate();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Override

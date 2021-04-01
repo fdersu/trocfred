@@ -1,5 +1,6 @@
 package fr.eni.ecole.bo;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 /**
  * 
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 public class Enchere {
 	private int numero;
 	private int montant;
-	private LocalDate date;
+	private Timestamp date;
 	private Utilisateur utilisateur;
 	private Article article;
 	
@@ -31,11 +32,11 @@ public class Enchere {
 		this.montant = montant;
 	}
 
-	public LocalDate getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 

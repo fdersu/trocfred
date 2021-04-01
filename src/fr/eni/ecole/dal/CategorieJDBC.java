@@ -13,11 +13,11 @@ public class CategorieJDBC implements CategorieDAO {
 	public List<Categorie> selectAll(){
 		List<Categorie> liste = new ArrayList<Categorie>();
 		try(Connection cx = Connect.getConnection()){
-			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle from categories");
+			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle FROM categories");
 			ResultSet rs = request.executeQuery();
 			while(rs.next()) {
 			Categorie c = new Categorie();
-			c.setNoCategorie(rs.getInt("no_categorie"));
+			c.setNumero(rs.getInt("no_categorie"));
 			c.setLibelle(rs.getString("libelle"));
 			liste.add(c);
 			}
@@ -30,10 +30,10 @@ public class CategorieJDBC implements CategorieDAO {
 	public Categorie selectByName(String nom) {
 		Categorie cat = new Categorie();
 		try(Connection cx = Connect.getConnection()){
-			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle WHERE libelle = ?");
+			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle FROM categories WHERE libelle = ?");
 			request.setString(1, nom);
 			ResultSet rs = request.executeQuery();
-			cat.setNoCategorie(rs.getInt("no_categorie"));
+			cat.setNumero(rs.getInt("no_categorie"));
 			cat.setLibelle(rs.getString("libelle"));
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -41,14 +41,14 @@ public class CategorieJDBC implements CategorieDAO {
 		return cat;
 	}
 	
-	public Categorie selectByNo(int no) {
+	public Categorie selectById(int id) {
 		Categorie cat = new Categorie();
 		try(Connection cx = Connect.getConnection()){
-			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle WHERE no_categorie = ?");
-			request.setInt(1, no);;
+			PreparedStatement request = cx.prepareStatement("SELECT no_categorie, libelle FROM categories WHERE no_categorie = ?");
+			request.setInt(1, id);;
 			ResultSet rs = request.executeQuery();
 			rs.next();
-			cat.setNoCategorie(rs.getInt("no_categorie"));
+			cat.setNumero(rs.getInt("no_categorie"));
 			cat.setLibelle(rs.getString("libelle"));
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -56,4 +56,21 @@ public class CategorieJDBC implements CategorieDAO {
 		return cat;
 	}
 
+
+
+	@Override
+	public void insert(Categorie item) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public void update(Categorie item) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public void delete(Categorie item) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	
 }

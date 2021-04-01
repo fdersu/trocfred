@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.title{
+	display: flex;
+	justify-content: center;
+	font-size: 50px;
+	padding-bottom: 50px;
+}
+.grid1{
+	display: grid;
+	grid-template-columns: 10% 20% 60% 10%;
+	grid-template-rows: 100%;
+	grid-template-areas: 
+	". a b .";
+	justify-items: center;
+}
+.img{
+	grid-area: a;
+}
+.form{
+	width: 100%;
+	grid-area: b;
+}
+.grid2{
+	width: 100%;
+	height: 800px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50px 50px 50px 50px 50px 50px 150px 50px;
+	row-gap: 10px;
+	justify-items: center;
+	grid-template-areas:
+	"a b"
+	"c d"
+	"e f"
+	"g h"
+	"i j"
+	"k l"
+	"m m"
+	"o p";
+}
+.labelarticle{
+	grid-area: a;
+}
+.inputarticle{
+	grid-area: b;
+}
+.labeldescription{
+	grid-area: c;
+}
+.inputdescription{
+	grid-area: d;
+}
+.labelcategorie{
+	grid-area: e;
+}
+.selectcategorie{
+	grid-area: f;
+}
+.labelmap{
+	grid-area: g;
+}
+.inputmap{
+	grid-area: h;
+}
+.labelDE{
+	grid-area: i;
+}
+.inputDE{
+	grid-area: j;
+}
+.labelFE{
+	grid-area: k;
+}
+.inputFE{
+	grid-area: l;
+}
+.retrait{
+	grid-area: m;
+}
+.submit{
+	grid-area: o;
+}
+.annuler{
+	grid-area: p;
+}
+.fieldset{
+	border: 2px;
+}
+.grid3{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+	"lr ir"
+	"lcp icp"
+	"lv iv";
+}
+.labelrue{
+	grid-area: lr;
+}
+.inputrue{
+	grid-area: ir;
+}
+.labelcp{
+	grid-area: lcp;
+}
+.inputcp{
+	grid-area: icp;
+}
+.labelville{
+	grid-area: lv;
+}
+.inputville{
+	grid-area: iv;
+}

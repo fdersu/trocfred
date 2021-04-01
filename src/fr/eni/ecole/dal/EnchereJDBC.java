@@ -20,10 +20,10 @@ public class EnchereJDBC implements EnchereDAO {
 		try(Connection cx = Connect.getConnection()){
 			PreparedStatement request = cx.prepareStatement("INSERT INTO encheres "
 					+ "(date_enchere, montant_enchere, no_article, no_utilisateur) VALUES(?,?,?,?)");
-			request.setDate(1, Date.valueOf(ench.getDateEnchere()));
-			request.setInt(2, ench.getMontant_enchere());
-			request.setInt(3, ench.getArticle().getNoArticle());
-			request.setInt(4, ench.getUtilisateur().getNoUtilisateur());
+			request.setTimestamp(1, ench.getDate());
+			request.setInt(2, ench.getMontant());
+			request.setInt(3, ench.getArticle().getNumero());
+			request.setInt(4, ench.getUtilisateur().getNumero());
 			request.executeUpdate();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -36,7 +36,7 @@ public class EnchereJDBC implements EnchereDAO {
 		try(Connection cx = Connect.getConnection()){
 			PreparedStatement request = cx.prepareStatement("SELECT no_enchere, date_enchere, montant_enchere, no_article, no_utilisateur"
 					+ " WHERE no_article = ?");
-			request.setInt(1, a.getNoArticle());
+			request.setInt(1, a.getNumero());
 			ResultSet rs = request.executeQuery();
 			rs.next();
 			ench = enchereBuilder(rs);
@@ -51,7 +51,7 @@ public class EnchereJDBC implements EnchereDAO {
 		try(Connection cx = Connect.getConnection()){
 			PreparedStatement request = cx.prepareStatement("SELECT no_enchere, date_enchere, montant_enchere, no_article, no_utilisateur "
 					+ "FROM encheres WHERE no_utilisateur = ?");
-			request.setInt(1, util.getNoUtilisateur());
+			request.setInt(1, util.getNumero());
 			ResultSet rs = request.executeQuery();
 			while(rs.next()) {
 				Enchere ench = enchereBuilder(rs);
@@ -66,15 +66,35 @@ public class EnchereJDBC implements EnchereDAO {
 	public Enchere enchereBuilder(ResultSet rs) {
 		Enchere ench = new Enchere();
 		try {
-			ench.setNo_enchere(rs.getInt("no_enchere"));
-			ench.setDateEnchere(rs.getDate("date_enchere").toLocalDate());
-			ench.setMontant_enchere(rs.getInt("montant_enchere"));
-			ench.setArticle(art.selectByNo(rs.getInt("no_article")));
-			ench.setUtilisateur(util.selectByNo(rs.getInt("no_utilisateur")));	
+			ench.setNumero(rs.getInt("no_enchere"));
+			ench.setDate(rs.getTimestamp("date_enchere"));
+			ench.setMontant(rs.getInt("montant_enchere"));
+			ench.setArticle(art.selectById(rs.getInt("no_article")));
+			ench.setUtilisateur(util.selectById(rs.getInt("no_utilisateur")));	
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return ench;
 	}
 
+	@Override
+	public List<Enchere> selectAll() {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public Enchere selectById(int id) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public void update(Enchere item) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public void delete(Enchere item) {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	
 }
