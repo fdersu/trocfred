@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Détail Vente</title>
+<title>Vente Remportée</title>
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="font.css" rel="stylesheet">
 </head>
@@ -20,8 +20,8 @@
       
       <div class="row">
       <div class="col-sm-4"></div>
-      <div class="col-sm-4"><p class="title">Détail Vente</p></div>
-      <div class="col-sm-4"></div>
+      <div class="col-sm-6"><p class="title">${utilisateur.pseudo} a remporté la vente</p></div>
+      <div class="col-sm-2"></div>
       </div>
       
       <div class="row">
@@ -50,23 +50,12 @@
         
         <div class="row">
         <div class="col-sm-6">
-        <p>Catégorie</p>
-        </div>
-        <div class="col-sm-6">
-        <p>${article.categorie.libelle}</p>
-        </div>
-        </div>
-        
-        <c:if test="${!empty enchere.date }">
-        <div class="row">
-        <div class="col-sm-6">
         <p>Meilleure Offre</p>
         </div>
         <div class="col-sm-6">
-        <p>${enchere.montant } pts par ${enchere.utilisateur.pseudo}</p>
+        <p>${enchere.montant } pts par ${utilisateur.pseudo }</p>
         </div>
         </div>
-        </c:if>
         
         <div class="row">
         <div class="col-sm-6">
@@ -112,22 +101,10 @@
         </div>
         </div>
         
-        <div class="row">
+         <div class="row">
         <div class="col-sm-6">
-        <label for="proposition">Ma proposition</label>
-        </div>
-        <div class="col-sm-6">
-        <form class="detailventeform" action="DetailVenteServlet" method="post">
-        <input type="hidden" value="${article.numero }" name="article">
-        <c:choose>
-        <c:when test="${empty enchere.date }">
-        <input type="number" name="proposition" id="proposition" min="${article.prixInitial }" step="1" style="width: 80px" required>
-        </c:when>
-        <c:otherwise>
-        <input type="number" name="proposition" id="proposition" min="${enchere.montant }" step="1" style="width: 80px" required>
-        </c:otherwise>
-        </c:choose>
-        <input type="submit" value="encherir">
+        <form>
+        <input type="submit" value="Retrait effectué">
         </form>
         </div>
         </div>
