@@ -9,7 +9,7 @@ import fr.eni.ecole.bo.Utilisateur;
 public interface EnchereDAO extends CRUD<Enchere> {
 
 	
-	Enchere selectByArticle(Article a);
+	List<Enchere> selectByArticle(Article a);
 	List<Enchere> selectByUser(Utilisateur util);
 	void insert(Enchere item);
 	List<Enchere> selectAll();

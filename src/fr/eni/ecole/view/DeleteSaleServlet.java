@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class DeleteServlet
  */
 @WebServlet("/DeleteServlet")
-public class DeleteServlet extends HttpServlet {
+public class DeleteSaleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    

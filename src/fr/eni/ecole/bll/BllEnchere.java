@@ -29,7 +29,7 @@ public class BllEnchere {
 		enchere.insert(item);
 	}
 	
-	public Enchere selectByArticle(Article a) {
+	public List<Enchere> selectByArticle(Article a) {
 		return enchere.selectByArticle(a);
 	}
 	

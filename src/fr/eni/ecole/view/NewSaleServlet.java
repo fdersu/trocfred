@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.ecole.bll.BllArticle;
 import fr.eni.ecole.bll.BllCategorie;
-import fr.eni.ecole.bll.BllEnchere;
 import fr.eni.ecole.bll.BllRetrait;
 import fr.eni.ecole.bll.BllUtilisateur;
 import fr.eni.ecole.bo.Article;
@@ -35,7 +34,6 @@ public class NewSaleServlet extends HttpServlet {
 	private BllUtilisateur util = BllUtilisateur.getBllUtilisateur();
 	private BllArticle article = BllArticle.getBllArticle();
 	private BllRetrait retrait = BllRetrait.getBllRetrait();
-	private BllEnchere enchere = BllEnchere.getBllEnchere();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

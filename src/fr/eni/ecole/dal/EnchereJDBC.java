@@ -30,20 +30,22 @@ public class EnchereJDBC implements EnchereDAO {
 		}
 	}
 	
-	public Enchere selectByArticle(Article a) {
-		Enchere ench = new Enchere();
+	public List<Enchere> selectByArticle(Article a) {
+		List<Enchere> liste = new ArrayList<Enchere>();
 		
 		try(Connection cx = Connect.getConnection()){
 			PreparedStatement request = cx.prepareStatement("SELECT no_enchere, date_enchere, montant_enchere, no_article, no_utilisateur"
-					+ " WHERE no_article = ?");
+					+ " FROM encheres WHERE no_article = ?");
 			request.setInt(1, a.getNumero());
 			ResultSet rs = request.executeQuery();
-			rs.next();
-			ench = enchereBuilder(rs);
+			while(rs.next()) {
+			Enchere ench = enchereBuilder(rs);
+			liste.add(ench);
+			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return ench;
+		return liste;
 	}
 	
 	public List<Enchere> selectByUser(Utilisateur util){
